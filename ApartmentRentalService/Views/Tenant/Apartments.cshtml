@@ -1,0 +1,20 @@
+﻿@model List<ApartmentRentalService.Models.ApartmentViewModel>
+
+<h2>Welcome to Apartment Rental Service</h2>
+
+<h3>All appartments:</h3>
+@foreach (var apartment in Model)
+{
+    <div>
+        <div>Appartment Description:</div>
+        <div>Rooms: @apartment.RoomsCount</div>
+        <div>Area: @apartment.Area</div>
+        <div>Discription: @apartment.Description</div>
+        <div>Monthly Fee: @apartment.MonthlyFee</div>
+        <div>Homeowner:</div>
+        <div>Phone number: @apartment.HomeownerPhoneNumber</div>
+        <div>Name: @apartment.HomeownerName @apartment.HomeownerSurname</div>
+        <div>@Html.ActionLink("Reserve", "Reserve", new { apartmentId = apartment.ApartmentId })</div>
+    </div>
+    <br />
+}

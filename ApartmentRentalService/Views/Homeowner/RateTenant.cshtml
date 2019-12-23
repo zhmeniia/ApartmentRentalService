@@ -1,0 +1,8 @@
+﻿
+@using(Html.BeginForm())
+{
+    <input name="tenantId" value="@ViewBag.TenantId" hidden/>
+    <label>Input stars count:</label>
+    <input type="number" name="starsCount" max="5" min="1" />
+    <input type="submit" title="Submit" />
+}

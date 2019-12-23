@@ -1,0 +1,32 @@
+﻿@model ApartmentRentalService.Models.ReserveViewModel
+
+@using (Html.BeginForm("Reserve", "Home", FormMethod.Post))
+{
+    <input type="number" name="apartmentId" value="@Model.ApartmentId" hidden />
+    <div>
+        <label>Enter your name:</label>
+        <input type="text" name="tenantName" />
+    </div>
+    <div>
+        <label>Enter your surname:</label>
+        <input type="text" name="tenantSurname" />
+    </div>
+    <div>
+        <label>Enter start month:</label>
+        <input type="month" name="startTime" min="@DateTime.Now.ToString("yyyy-MM")" max="@DateTime.Now.AddYears(1).ToString("yyyy-MM")" />
+    </div>
+    <div>
+        <label>Enter end month:</label>
+        <input type="month" name="endTime" min="@DateTime.Now.ToString("yyyy-MM")" max="@DateTime.Now.AddYears(1).ToString("yyyy-MM")" />
+    </div>
+    <div>
+        <input type="submit" title="Submit" />
+    </div>
+}
+
+<h3>Already reserved monthes:</h3>
+@foreach (var time in Model.ReservedTimes)
+{
+    <div>@time.Month.@time.Year</div>
+}
+

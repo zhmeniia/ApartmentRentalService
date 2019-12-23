@@ -1,0 +1,7 @@
+﻿@model List<ApartmentRentalService.Controllers.RateTenantViewModel>
+
+<h3>Choose reservation </h3>
+@foreach(var m in Model)
+{
+    <div>@Html.ActionLink($"Tenant:{m.FirstName} {m.LastName} Period:{m.StartTime.Month}.{m.StartTime.Year} - {m.EndTime.Month}.{m.EndTime.Year}", "RateTenant")</div>
+}
